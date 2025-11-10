@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BlueWave Invest Design System - Professional, trustworthy fintech palette */
+
+@layer base {
+  :root {
+    /* Core surface colors */
+    --background: 210 20% 98%;
+    --foreground: 220 20% 15%;
+
+    /* Card surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    /* Popover surfaces */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    /* Primary - Deep professional blue (Fidelity-inspired) */
+    --primary: 220 70% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 220 70% 35%;
+
+    /* Secondary - Light blue accent */
+    --secondary: 220 60% 92%;
+    --secondary-foreground: 220 70% 30%;
+
+    /* Muted - Subtle backgrounds */
+    --muted: 220 20% 96%;
+    --muted-foreground: 220 15% 50%;
+
+    /* Accent - Bright blue for CTAs */
+    --accent: 215 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 215 100% 45%;
+
+    /* Success - Green for positive indicators */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - Amber for caution */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Destructive - Red for errors/danger */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 220 70% 40%;
+
+    /* Radius for rounded corners */
+    --radius: 0.5rem;
+
+    /* Sidebar specific colors */
+    --sidebar-background: 220 70% 40%;
+    --sidebar-foreground: 220 50% 95%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 220 70% 40%;
+    --sidebar-accent: 220 70% 35%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 60% 45%;
+    --sidebar-ring: 215 100% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220, 70%, 40%), hsl(215, 100%, 50%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(220, 60%, 98%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    /* Transitions */
+    --transition-smooth: all 0.2s ease-in-out;
+    --transition-slow: all 0.3s ease-in-out;
+  }
+
+  .dark {
+    /* Dark mode colors (minimal for now since user didn't request) */
+    --background: 220 30% 8%;
+    --foreground: 220 20% 95%;
+    --card: 220 30% 10%;
+    --card-foreground: 220 20% 95%;
+    --popover: 220 30% 10%;
+    --popover-foreground: 220 20% 95%;
+    --primary: 215 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 30% 15%;
+    --secondary-foreground: 220 20% 95%;
+    --muted: 220 30% 15%;
+    --muted-foreground: 220 15% 60%;
+    --accent: 215 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 215 100% 50%;
+    --sidebar-background: 220 30% 10%;
+    --sidebar-foreground: 220 20% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+/* Custom utility classes for BlueWave Invest */
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-slow {
+    transition: var(--transition-slow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+}
