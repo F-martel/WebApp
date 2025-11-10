@@ -1,7 +1,7 @@
 import { AppLayout } from "@/components/layout/AppLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, TrendingDown, Briefcase, Wallet, DollarSign, Shield, CreditCard } from "lucide-react";
+import { Briefcase, Wallet, Shield, CreditCard, UserCircle } from "lucide-react";
 
 // Mock data
 const portfolioData = {
@@ -18,12 +18,16 @@ const managedInvestments = {
   averageReturn: 18.5,
 };
 
-const manualTrades = {
-  cashAvailable: 6162.50,
-  topHoldings: [
-    { symbol: "BTC", name: "Bitcoin", amount: 0.245, value: 10250.00 },
-    { symbol: "ETH", name: "Ethereum", amount: 3.5, value: 5840.00 },
-    { symbol: "SOL", name: "Solana", amount: 45.2, value: 3920.00 },
+const managerSpotlight = {
+  name: "Lena Ortiz",
+  firm: "BlueWave Digital Advisors",
+  focus: "Global Digital Assets Strategy",
+  returnYTD: 18.9,
+  riskLevel: "Moderate",
+  highlights: [
+    "Active hedging playbook that reduced drawdowns by 12% last quarter",
+    "Diversified exposure across blue-chip DeFi protocols and staking yields",
+    "Weekly performance reviews with transparent reporting dashboards",
   ],
 };
 
@@ -106,35 +110,54 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          {/* Manual Trades */}
+          {/* Manager Spotlight */}
           <Card className="shadow-card">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-accent" />
-                Manual Trades
+                <UserCircle className="w-5 h-5 text-primary" />
+                Manager Spotlight
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex justify-between items-center pb-4 border-b border-border">
-                <span className="text-muted-foreground">Cash Available</span>
-                <span className="text-xl font-semibold text-accent">${manualTrades.cashAvailable.toLocaleString()}</span>
-              </div>
               <div>
-                <div className="text-sm font-medium mb-3">Top Holdings</div>
-                <div className="space-y-3">
-                  {manualTrades.topHoldings.map((holding) => (
-                    <div key={holding.symbol} className="flex justify-between items-center">
-                      <div>
-                        <div className="font-medium">{holding.symbol}</div>
-                        <div className="text-sm text-muted-foreground">{holding.amount} {holding.symbol}</div>
-                      </div>
-                      <div className="text-right font-semibold">${holding.value.toLocaleString()}</div>
-                    </div>
-                  ))}
+                <div className="text-sm text-muted-foreground">Lead Manager</div>
+                <div className="text-2xl font-semibold text-foreground">{managerSpotlight.name}</div>
+                <div className="text-sm text-muted-foreground">{managerSpotlight.firm}</div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="p-3 rounded-lg bg-muted">
+                  <div className="text-xs text-muted-foreground uppercase tracking-wide">Strategy Focus</div>
+                  <div className="font-semibold">{managerSpotlight.focus}</div>
+                </div>
+                <div className="p-3 rounded-lg bg-muted">
+                  <div className="text-xs text-muted-foreground uppercase tracking-wide">Return YTD</div>
+                  <div className="text-lg font-semibold text-success">+{managerSpotlight.returnYTD}%</div>
+                </div>
+                <div className="p-3 rounded-lg bg-muted">
+                  <div className="text-xs text-muted-foreground uppercase tracking-wide">Risk Level</div>
+                  <div className="font-semibold">{managerSpotlight.riskLevel}</div>
+                </div>
+                <div className="p-3 rounded-lg bg-muted">
+                  <div className="text-xs text-muted-foreground uppercase tracking-wide">Client Retention</div>
+                  <div className="font-semibold">96%</div>
                 </div>
               </div>
-              <Button className="w-full mt-4 bg-accent hover:bg-accent-hover text-accent-foreground">
-                Start Trading
+
+              <div>
+                <div className="text-sm font-medium mb-2">Highlights</div>
+                <ul className="space-y-2">
+                  {managerSpotlight.highlights.map((highlight) => (
+                    <li key={highlight} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary" />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <Button variant="outline" className="w-full">
+                Review Managed Strategy
               </Button>
             </CardContent>
           </Card>

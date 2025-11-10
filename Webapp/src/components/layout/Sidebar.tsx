@@ -4,7 +4,6 @@ import { NavLink } from "@/components/NavLink";
 // Navigation items with icons and labels
 const navItems = [
   { label: "Dashboard", icon: LayoutDashboard, path: "/" },
-  { label: "Trade", icon: TrendingUp, path: "/trade" },
   { label: "Managed Portfolios", icon: Briefcase, path: "/portfolios" },
   { label: "Managers", icon: Users, path: "/managers" },
   { label: "Transactions", icon: Receipt, path: "/transactions" },

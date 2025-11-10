@@ -10,21 +10,20 @@ import { ArrowUpRight, ArrowDownRight, Briefcase, DollarSign } from "lucide-reac
 
 // Mock transaction data
 const mockTransactions = [
-  { id: "TX001", date: "2025-01-15", type: "Deposit", asset: "USD", amount: 5000.00, status: "Completed", icon: ArrowDownRight },
-  { id: "TX002", date: "2025-01-14", type: "Trade", asset: "BTC", amount: -2500.00, status: "Completed", icon: DollarSign },
-  { id: "TX003", date: "2025-01-14", type: "Managed Investment", asset: "Conservative Growth", amount: -1000.00, status: "Completed", icon: Briefcase },
-  { id: "TX004", date: "2025-01-13", type: "Trade", asset: "ETH", amount: -800.00, status: "Completed", icon: DollarSign },
-  { id: "TX005", date: "2025-01-12", type: "Withdrawal", asset: "USD", amount: -500.00, status: "Pending", icon: ArrowUpRight },
-  { id: "TX006", date: "2025-01-11", type: "Managed Investment", asset: "DeFi Growth", amount: -1500.00, status: "Completed", icon: Briefcase },
-  { id: "TX007", date: "2025-01-10", type: "Trade", asset: "SOL", amount: -300.00, status: "Completed", icon: DollarSign },
-  { id: "TX008", date: "2025-01-09", type: "Deposit", asset: "USD", amount: 2000.00, status: "Completed", icon: ArrowDownRight },
-  { id: "TX009", date: "2025-01-08", type: "Trade", asset: "BTC", amount: 150.00, status: "Completed", icon: DollarSign },
-  { id: "TX010", date: "2025-01-07", type: "Withdrawal", asset: "USD", amount: -1000.00, status: "Failed", icon: ArrowUpRight },
-  { id: "TX011", date: "2025-01-06", type: "Managed Investment", asset: "Balanced Portfolio", amount: -750.00, status: "Completed", icon: Briefcase },
-  { id: "TX012", date: "2025-01-05", type: "Trade", asset: "ETH", amount: -400.00, status: "Completed", icon: DollarSign },
-  { id: "TX013", date: "2025-01-04", type: "Deposit", asset: "USD", amount: 3000.00, status: "Completed", icon: ArrowDownRight },
-  { id: "TX014", date: "2025-01-03", type: "Trade", asset: "USDC", amount: -500.00, status: "Completed", icon: DollarSign },
-  { id: "TX015", date: "2025-01-02", type: "Managed Investment", asset: "Aggressive Growth", amount: -2000.00, status: "Completed", icon: Briefcase },
+  { id: "TX001", date: "2025-01-15", type: "Deposit", asset: "USD", amount: 5000.0, status: "Completed", icon: ArrowDownRight },
+  { id: "TX002", date: "2025-01-14", type: "Managed Allocation", asset: "Conservative Income", amount: -1500.0, status: "Completed", icon: Briefcase },
+  { id: "TX003", date: "2025-01-13", type: "Managed Allocation", asset: "DeFi Growth", amount: -2000.0, status: "Completed", icon: Briefcase },
+  { id: "TX004", date: "2025-01-12", type: "Performance Distribution", asset: "Aggressive Growth", amount: 320.0, status: "Completed", icon: DollarSign },
+  { id: "TX005", date: "2025-01-11", type: "Management Fee", asset: "Advisory Services", amount: -85.0, status: "Completed", icon: DollarSign },
+  { id: "TX006", date: "2025-01-10", type: "Deposit", asset: "USD", amount: 2000.0, status: "Completed", icon: ArrowDownRight },
+  { id: "TX007", date: "2025-01-09", type: "Withdrawal", asset: "USD", amount: -750.0, status: "Pending", icon: ArrowUpRight },
+  { id: "TX008", date: "2025-01-08", type: "Managed Allocation", asset: "Sustainable Yield", amount: -1250.0, status: "Completed", icon: Briefcase },
+  { id: "TX009", date: "2025-01-07", type: "Performance Distribution", asset: "Balanced Portfolio", amount: 210.0, status: "Completed", icon: DollarSign },
+  { id: "TX010", date: "2025-01-06", type: "Management Fee", asset: "Performance Fee", amount: -140.0, status: "Completed", icon: DollarSign },
+  { id: "TX011", date: "2025-01-05", type: "Deposit", asset: "USD", amount: 3000.0, status: "Completed", icon: ArrowDownRight },
+  { id: "TX012", date: "2025-01-04", type: "Managed Allocation", asset: "Emerging Market Crypto", amount: -900.0, status: "Completed", icon: Briefcase },
+  { id: "TX013", date: "2025-01-03", type: "Withdrawal", asset: "USD", amount: -500.0, status: "Failed", icon: ArrowUpRight },
+  { id: "TX014", date: "2025-01-02", type: "Performance Distribution", asset: "DeFi Growth", amount: 285.0, status: "Completed", icon: DollarSign },
 ];
 
 const Transactions = () => {
@@ -58,10 +57,12 @@ const Transactions = () => {
         return "text-success";
       case "Withdrawal":
         return "text-destructive";
-      case "Trade":
-        return "text-accent";
-      case "Managed Investment":
+      case "Managed Allocation":
         return "text-primary";
+      case "Performance Distribution":
+        return "text-success";
+      case "Management Fee":
+        return "text-muted-foreground";
       default:
         return "text-foreground";
     }
@@ -88,8 +89,9 @@ const Transactions = () => {
                     <SelectItem value="All">All Transactions</SelectItem>
                     <SelectItem value="Deposit">Deposits</SelectItem>
                     <SelectItem value="Withdrawal">Withdrawals</SelectItem>
-                    <SelectItem value="Trade">Trades</SelectItem>
-                    <SelectItem value="Managed Investment">Managed Investments</SelectItem>
+                    <SelectItem value="Managed Allocation">Managed Allocations</SelectItem>
+                    <SelectItem value="Performance Distribution">Performance Distributions</SelectItem>
+                    <SelectItem value="Management Fee">Management Fees</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
